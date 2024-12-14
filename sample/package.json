@@ -1,0 +1,27 @@
+{
+    "name": "safeguard-demo",
+    "displayName": "SafeGuard Demo",
+    "version": "1.0.0",
+    "description": "Sample application demonstrating SafeGuard plugin features",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "ecosystem:cordova"
+    ],
+    "author": "WebileApps Team",
+    "license": "Apache-2.0",
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-safeguard": {}
+        }
+    },
+    "devDependencies": {
+        "cordova-android": "^13.0.0",
+        "cordova-plugin-safeguard": "file:../plugin"
+    }
+}

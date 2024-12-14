@@ -8,14 +8,14 @@
     <license>MIT</license>
     <keywords>cordova,security,root,malware,tampering</keywords>
     
-    <js-module src="www/safeguard.js" name="SecurityChecker">
-        <clobbers target="SecurityChecker" />
+    <js-module src="www/safeguard.js" name="Safeguard">
+        <clobbers target="Safeguard" />
     </js-module>
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="SecurityChecker">
-                <param name="android-package" value="com.webileapps.safeguard.cordova.SecurityCheckerPlugin"/>
+            <feature name="Safeguard">
+                <param name="android-package" value="com.webileapps.safeguard.cordova.SafeguardPlugin"/>
             </feature>
         </config-file>
 
@@ -24,19 +24,21 @@
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>
 
-        <source-file src="src/android/SecurityChecker.java" target-dir="src/com/webileapps/safeguard" />
+        <source-file src="src/android/SafeguardPlugin.java" target-dir="src/com/webileapps/safeguard/cordova" />
         
-        <framework src="src/android/build.gradle" custom="true" type="gradlew"/>
+        <!-- Gradle Configuration -->
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
+        <resource-file src="src/android/protect-release.aar" target="libs/protect-release.aar" />
     </platform>
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="SecurityChecker">
-                <param name="ios-package" value="SecurityChecker"/>
+            <feature name="Safeguard">
+                <param name="ios-package" value="Safeguard"/>
             </feature>
         </config-file>
         
-        <source-file src="src/ios/SecurityChecker.m" />
-        <header-file src="src/ios/SecurityChecker.h" />
+        <source-file src="src/ios/Safeguard.m" />
+        <header-file src="src/ios/Safeguard.h" />
     </platform>
 </plugin>

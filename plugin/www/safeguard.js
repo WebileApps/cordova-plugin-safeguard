@@ -2,35 +2,35 @@ var exec = require('cordova/exec');
 
 var SecurityChecker = {
     checkSecurity: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkSecurity', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkSecurity', []);
     },
     
     checkRoot: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkRoot', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkRoot', []);
     },
     
     checkDeveloperOptions: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkDeveloperOptions', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkDeveloperOptions', []);
     },
     
     checkMalware: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkMalware', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkMalware', []);
     },
     
     checkNetwork: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkNetwork', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkNetwork', []);
     },
     
     checkScreenMirroring: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkScreenMirroring', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkScreenMirroring', []);
     },
     
     checkApplicationSpoofing: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkAppSpoofing', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkAppSpoofing', []);
     },
     
     checkKeyLogger: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'SecurityChecker', 'checkKeyLogger', []);
+        exec(successCallback, errorCallback, 'Safeguard', 'checkKeyLogger', []);
     }
 };
 
