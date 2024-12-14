@@ -1,0 +1,38 @@
+# Development
+.git/
+.github/
+.gitignore
+.npmignore
+*.log
+
+# Sample app
+sample/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Test files
+__tests__/
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Build artifacts
+build/
+dist/
+tmp/
+
+# Cordova
+platforms/
+plugins/
+hooks/

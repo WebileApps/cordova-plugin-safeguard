@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-safeguard"
+    version="0.1.0">
+    <name>SafeGuard</name>
+    <description>Cordova plugin for security checks and device integrity verification</description>
+    <license>MIT</license>
+    <keywords>cordova,security,root,malware,tampering</keywords>
+    
+    <js-module src="www/safeguard.js" name="SecurityChecker">
+        <clobbers target="SecurityChecker" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SecurityChecker">
+                <param name="android-package" value="com.webileapps.safeguard.cordova.SecurityCheckerPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+
+        <source-file src="src/android/SecurityChecker.java" target-dir="src/com/webileapps/safeguard" />
+        
+        <framework src="src/android/build.gradle" custom="true" type="gradlew"/>
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="SecurityChecker">
+                <param name="ios-package" value="SecurityChecker"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/ios/SecurityChecker.m" />
+        <header-file src="src/ios/SecurityChecker.h" />
+    </platform>
+</plugin>

@@ -1,0 +1,40 @@
+{
+  "name": "cordova-plugin-safeguard",
+  "version": "0.1.0",
+  "description": "Cordova plugin for security checks and device integrity verification",
+  "cordova": {
+    "id": "cordova-plugin-safeguard",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "security",
+    "root-detection",
+    "malware-detection",
+    "tampering-detection"
+  ],
+  "engines": {
+    "cordovaDependencies": {
+      "0.1.0": {
+        "cordova": ">=9.0.0",
+        "cordova-android": ">=9.0.0",
+        "cordova-ios": ">=6.0.0"
+      }
+    }
+  },
+  "author": "WebileApps",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webileapps/cordova-plugin-safeguard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webileapps/cordova-plugin-safeguard/issues"
+  },
+  "homepage": "https://github.com/webileapps/cordova-plugin-safeguard#readme"
+}

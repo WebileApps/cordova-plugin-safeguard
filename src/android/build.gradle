@@ -1,0 +1,12 @@
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.webileapps:safeguard:0.1.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+}
