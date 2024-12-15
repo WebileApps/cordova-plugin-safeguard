@@ -16,10 +16,21 @@
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Safeguard">
                 <param name="android-package" value="com.webileapps.safeguard.cordova.SafeguardPlugin"/>
+                <param name="onload" value="true" />
             </feature>
+
+            <preference name="ROOT_CHECK_STATE" value="DISABLED" />
+            <preference name="DEVELOPER_OPTIONS_CHECK_STATE" value="DISABLED" />
+            <preference name="MALWARE_CHECK_STATE" value="DISABLED" />
+            <preference name="TAMPERING_CHECK_STATE" value="DISABLED" />
+            <preference name="NETWORK_SECURITY_CHECK_STATE" value="DISABLED" />
+            <preference name="SCREEN_SHARING_CHECK_STATE" value="DISABLED" />
+            <preference name="APP_SPOOFING_CHECK_STATE" value="DISABLED" />
+            <preference name="KEYLOGGER_CHECK_STATE" value="DISABLED" />
+            <preference name="EXPECTED_PACKAGE_NAME" value="$PACKAGE_NAME" />
         </config-file>
 
-        <config-file target="AndroidManifest.xml" parent="/*">
+        <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         </config-file>

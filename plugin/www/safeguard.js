@@ -1,8 +1,8 @@
 var exec = require('cordova/exec');
 
 var SecurityChecker = {
-    checkSecurity: function(successCallback, errorCallback) {
-        exec(successCallback, errorCallback, 'Safeguard', 'checkSecurity', []);
+    checkAll: function(successCallback, errorCallback) {
+        exec(successCallback, errorCallback, 'Safeguard', 'checkAll', []);
     },
     
     checkRoot: function(successCallback, errorCallback) {

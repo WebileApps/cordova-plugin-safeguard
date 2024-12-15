@@ -9,6 +9,7 @@ function onDeviceReady() {
     document.getElementById('checkScreen').addEventListener('click', checkScreen);
     document.getElementById('checkSpoofing').addEventListener('click', checkSpoofing);
     document.getElementById('checkKeyLogger').addEventListener('click', checkKeyLogger);
+    document.getElementById('checkAll').addEventListener('click', checkAll);
 }
 
 function updateButtonState(buttonId, result) {
@@ -104,6 +105,18 @@ function checkKeyLogger() {
         function(error) {
             console.error('Key logger check failed:', error);
             updateButtonState('checkKeyLogger', error);
+        }
+    );
+}
+
+function checkAll() {
+    Safeguard.checkAll(
+        function(result) {
+            updateButtonState('checkAll', result);
+        },
+        function(error) {
+            console.error('All checks failed:', error);
+            updateButtonState('checkAll', error);
         }
     );
 }

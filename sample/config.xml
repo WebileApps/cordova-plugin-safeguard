@@ -18,6 +18,7 @@
     <preference name="SCREEN_SHARING_CHECK_STATE" value="WARNING" />
     <preference name="APP_SPOOFING_CHECK_STATE" value="WARNING" />
     <preference name="KEYLOGGER_CHECK_STATE" value="WARNING" />
+    <preference name="EXPECTED_PACKAGE_NAME" value="com.webileapps.safeguarddemo" />
     
     <platform name="android">
         <preference name="GradlePluginKotlinVersion" value="1.8.0" />
