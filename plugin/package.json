@@ -27,6 +27,11 @@
       }
     }
   },
+  "scripts": {
+    "version": "node scripts/version.js",
+    "prepublishOnly": "npm run version && node scripts/prepublish.js",
+    "postpublish": "node scripts/postpublish.js"
+  },
   "author": "WebileApps",
   "license": "MIT",
   "repository": {
@@ -36,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/webileapps/cordova-plugin-safeguard/issues"
   },
-  "homepage": "https://github.com/webileapps/cordova-plugin-safeguard#readme"
+  "homepage": "https://github.com/webileapps/cordova-plugin-safeguard#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
