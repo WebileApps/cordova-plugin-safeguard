@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-safeguard"
-    version="0.1.0">
+    version="0.1.1">
     <name>SafeGuard</name>
     <description>Cordova plugin for security checks and device integrity verification</description>
     <license>MIT</license>
@@ -15,19 +15,10 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Safeguard">
+                <preference name="EXPECTED_PACKAGE_NAME" value="$PACKAGE_NAME" />
                 <param name="android-package" value="com.webileapps.safeguard.cordova.SafeguardPlugin"/>
                 <param name="onload" value="true" />
             </feature>
-
-            <preference name="ROOT_CHECK_STATE" value="DISABLED" />
-            <preference name="DEVELOPER_OPTIONS_CHECK_STATE" value="DISABLED" />
-            <preference name="MALWARE_CHECK_STATE" value="DISABLED" />
-            <preference name="TAMPERING_CHECK_STATE" value="DISABLED" />
-            <preference name="NETWORK_SECURITY_CHECK_STATE" value="DISABLED" />
-            <preference name="SCREEN_SHARING_CHECK_STATE" value="DISABLED" />
-            <preference name="APP_SPOOFING_CHECK_STATE" value="DISABLED" />
-            <preference name="KEYLOGGER_CHECK_STATE" value="DISABLED" />
-            <preference name="EXPECTED_PACKAGE_NAME" value="$PACKAGE_NAME" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">

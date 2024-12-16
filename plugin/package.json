@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-safeguard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cordova plugin for security checks and device integrity verification",
   "cordova": {
     "id": "cordova-plugin-safeguard",
@@ -20,7 +20,7 @@
   ],
   "engines": {
     "cordovaDependencies": {
-      "0.1.0": {
+      "0.1.1": {
         "cordova": ">=9.0.0",
         "cordova-android": ">=9.0.0",
         "cordova-ios": ">=6.0.0"
