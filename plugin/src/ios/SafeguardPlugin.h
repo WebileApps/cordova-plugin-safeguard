@@ -1,5 +1,5 @@
 #import <Cordova/CDVPlugin.h>
-#import "SGSecurityChecker.h"
+#import <SafeGuardiOS/SGSecurityChecker.h>
 
 @interface SafeguardPlugin : CDVPlugin
 

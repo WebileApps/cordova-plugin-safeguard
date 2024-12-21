@@ -9,6 +9,7 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     
+    <preference name="deployment-target" value="12.0" />
     <!-- SafeGuard Plugin Configuration -->
     <preference name="ROOT_CHECK_STATE" value="WARNING" />
     <preference name="DEVELOPER_OPTIONS_CHECK_STATE" value="WARNING" />
