@@ -26,4 +26,7 @@
         <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/splash.png" />
         <preference name="AndroidWindowSplashScreenBackground" value="#FFFFFF" />
     </platform>
+    <platform name="ios">
+        <preference name="EXPECTED_SIGNATURE_HASH" value="1830081e02d3eba4e5fec2dd72f0ebceffe58539ca7e7ff6f08c6471e42cbcd4" />
+    </platform>
 </widget>

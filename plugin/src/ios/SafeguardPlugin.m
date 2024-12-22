@@ -12,17 +12,17 @@
     // Get preferences from config.xml
     SGSecurityConfiguration *config = [[SGSecurityConfiguration alloc] init];
     
-    config.rootDetectionLevel = [self getSecurityLevelFromPreferences:@"ROOT_CHECK_STATE" defaultValue:SGSecurityLevelError];
-    config.developerOptionsLevel = [self getSecurityLevelFromPreferences:@"DEVELOPER_OPTIONS_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.signatureVerificationLevel = [self getSecurityLevelFromPreferences:@"MALWARE_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.networkSecurityLevel = [self getSecurityLevelFromPreferences:@"NETWORK_SECURITY_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.screenSharingLevel = [self getSecurityLevelFromPreferences:@"SCREEN_SHARING_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.spoofingLevel = [self getSecurityLevelFromPreferences:@"APP_SPOOFING_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.reverseEngineerLevel = [self getSecurityLevelFromPreferences:@"TAMPERING_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.keyLoggersLevel = [self getSecurityLevelFromPreferences:@"KEYLOGGER_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.audioCallLevel = [self getSecurityLevelFromPreferences:@"ONGOING_CALL_CHECK_STATE" defaultValue:SGSecurityLevelWarning];
-    config.expectedBundleIdentifier = [self.commandDelegate.settings objectForKey:@"EXPECTED_PACKAGE_NAME"];
-    config.expectedSignature = [self.commandDelegate.settings objectForKey:@"EXPECTED_CERTIFICATE_HASH"];
+    config.rootDetectionLevel = [self getSecurityLevelFromPreferences:@"root_check_state" defaultValue:SGSecurityLevelError];
+    config.developerOptionsLevel = [self getSecurityLevelFromPreferences:@"developer_options_check_state" defaultValue:SGSecurityLevelWarning];
+    config.signatureVerificationLevel = [self getSecurityLevelFromPreferences:@"malware_check_state" defaultValue:SGSecurityLevelWarning];
+    config.networkSecurityLevel = [self getSecurityLevelFromPreferences:@"network_security_check_state" defaultValue:SGSecurityLevelWarning];
+    config.screenSharingLevel = [self getSecurityLevelFromPreferences:@"screen_sharing_check_state" defaultValue:SGSecurityLevelWarning];
+    config.spoofingLevel = [self getSecurityLevelFromPreferences:@"app_spoofing_check_state" defaultValue:SGSecurityLevelWarning];
+    config.reverseEngineerLevel = [self getSecurityLevelFromPreferences:@"tampering_check_state" defaultValue:SGSecurityLevelWarning];
+    config.keyLoggersLevel = [self getSecurityLevelFromPreferences:@"keylogger_check_state" defaultValue:SGSecurityLevelWarning];
+    config.audioCallLevel = [self getSecurityLevelFromPreferences:@"ongoing_call_check_state" defaultValue:SGSecurityLevelWarning];
+    config.expectedBundleIdentifier = [self.commandDelegate.settings objectForKey:@"expected_package_name"];
+    config.expectedSignature = [self.commandDelegate.settings objectForKey:@"expected_certificate_hash"];
  
     self.securityChecker = [[SGSecurityChecker alloc] initWithConfiguration:config];
     
