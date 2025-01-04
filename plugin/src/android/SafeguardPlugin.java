@@ -6,8 +6,6 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,11 +13,8 @@ import android.util.Log;
 import com.webileapps.safeguard.SecurityChecker;
 import com.webileapps.safeguard.SecurityConfigManager;
 
-import java.util.function.Consumer;
-
 public class SafeguardPlugin extends CordovaPlugin {
     private static final String TAG = "SafeguardPlugin";
-    private CallbackContext securityCheckCallback;
     private SecurityChecker securityChecker;
 
     @Override
@@ -41,7 +36,7 @@ public class SafeguardPlugin extends CordovaPlugin {
         String expectedCertificateHash = preferences.getString("EXPECTED_CERTIFICATE_HASH", "");
 
         // Initialize SecurityConfigManager with the configuration from config.xml
-        SecurityConfigManager.INSTANCE.initialize(
+        SecurityConfigManager.initialize(
             cordova.getContext(),
             new SecurityChecker.SecurityConfig(
                 SecurityChecker.SecurityCheckState.fromString(rootCheckState),
@@ -60,19 +55,16 @@ public class SafeguardPlugin extends CordovaPlugin {
         );
         
         // Get the SecurityChecker instance
-        securityChecker = SecurityConfigManager.INSTANCE.getSecurityChecker();
+        securityChecker = SecurityConfigManager.getSecurityChecker();
 
         securityChecker.setupCallMonitoring(cordova.getActivity(), () -> {
-            return null;
         });
     }
 
     @Override
     public void onResume(boolean multitasking) {
         super.onResume(multitasking);
-        cordova.getActivity().runOnUiThread(() -> {
-            securityChecker.runSecurityChecks();
-        });
+        cordova.getActivity().runOnUiThread(() -> securityChecker.runSecurityChecks());
     }
 
     private String getSecurityCheckState(String preferenceName, String defaultValue) {
@@ -88,44 +80,30 @@ public class SafeguardPlugin extends CordovaPlugin {
     }
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
         Context context = cordova.getContext();
 
         switch (action) {
             case "checkRoot":
-                cordova.getThreadPool().execute(() -> {
-                    checkRoot(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkRoot(context, callbackContext));
                 return true;
             case "checkDeveloperOptions":
-                cordova.getThreadPool().execute(() -> {
-                    checkDeveloperOptions(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkDeveloperOptions(context, callbackContext));
                 return true;
             case "checkMalware":
-                cordova.getThreadPool().execute(() -> {
-                    checkMalware(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkMalware(context, callbackContext));
                 return true;
             case "checkNetwork":
-                cordova.getThreadPool().execute(() -> {
-                    checkNetwork(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkNetwork(context, callbackContext));
                 return true;
             case "checkScreenMirroring":
-                cordova.getThreadPool().execute(() -> {
-                    checkScreenMirroring(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkScreenMirroring(context, callbackContext));
                 return true;
             case "checkAppSpoofing":
-                cordova.getThreadPool().execute(() -> {
-                    checkAppSpoofing(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkAppSpoofing(context, callbackContext));
                 return true;
             case "checkKeyLogger":
-                cordova.getThreadPool().execute(() -> {
-                    checkKeyLogger(context, callbackContext);
-                });
+                cordova.getThreadPool().execute(() -> checkKeyLogger(context, callbackContext));
                 return true;
             case "checkAll":
                 cordova.getThreadPool().execute(() -> {
@@ -204,18 +182,18 @@ public class SafeguardPlugin extends CordovaPlugin {
         if (result instanceof SecurityChecker.SecurityCheck.Success) {
             callbackContext.success(checkName + ": Passed");
         } else {
-            showSecurityViolation(context, checkName, result);
+            showSecurityViolation(context, result);
         }
     }
 
-    private void showSecurityViolation(Context context, String title, SecurityChecker.SecurityCheck check) {
+    private void showSecurityViolation(Context context, SecurityChecker.SecurityCheck check) {
         cordova.getActivity().runOnUiThread(() -> {
             if (check instanceof SecurityChecker.SecurityCheck.Warning) {
                 SecurityChecker.SecurityCheck.Warning warning = (SecurityChecker.SecurityCheck.Warning) check;
-                securityChecker.showSecurityDialog(context, warning.getMessage(), false);
+                securityChecker.showSecurityDialog(context, warning.message, false, (something) -> {});
             } else if (check instanceof SecurityChecker.SecurityCheck.Critical) {
                 SecurityChecker.SecurityCheck.Critical critical = (SecurityChecker.SecurityCheck.Critical) check;
-                securityChecker.showSecurityDialog(context, critical.getMessage(), true);
+                securityChecker.showSecurityDialog(context, critical.message, true, (something) -> {});
             }
         });
     }

@@ -18,7 +18,6 @@ const requiredFiles = [
     'www/safeguard.js',
     'src/android/SafeguardPlugin.java',
     'src/android/build.gradle',
-    'src/android/protect-release.aar',
     'package.json'
 ];
 
