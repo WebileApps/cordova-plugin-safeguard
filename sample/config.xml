@@ -19,6 +19,8 @@
     <preference name="SCREEN_SHARING_CHECK_STATE" value="WARNING" />
     <preference name="APP_SPOOFING_CHECK_STATE" value="WARNING" />
     <preference name="KEYLOGGER_CHECK_STATE" value="WARNING" />
+    <preference name="ONGOING_CALL_CHECK_STATE" value="WARNING" />
+    <preference name="CERTIFICATE_MATCHING_CHECK_STATE" value="WARNING" />
     <preference name="EXPECTED_PACKAGE_NAME" value="com.webileapps.safeguarddemo" />
     
     <platform name="android">

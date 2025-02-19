@@ -43,12 +43,12 @@ public class SafeguardPlugin extends CordovaPlugin {
                 SecurityChecker.SecurityCheckState.fromString(devOptionsCheckState),
                 SecurityChecker.SecurityCheckState.fromString(malwareCheckState),
                 SecurityChecker.SecurityCheckState.fromString(tamperingCheckState),
+                SecurityChecker.SecurityCheckState.fromString(appSpoofingCheckState),
                 SecurityChecker.SecurityCheckState.fromString(networkSecurityCheckState),
                 SecurityChecker.SecurityCheckState.fromString(screenSharingCheckState),
-                SecurityChecker.SecurityCheckState.fromString(appSpoofingCheckState),
                 SecurityChecker.SecurityCheckState.fromString(keyloggerCheckState),
-                SecurityChecker.SecurityCheckState.fromString(certificateMatchingCheckState),
                 SecurityChecker.SecurityCheckState.fromString(ongoingCallCheckState),
+                SecurityChecker.SecurityCheckState.fromString(certificateMatchingCheckState),
                 expectedPackageName,
                 expectedCertificateHash
             )
